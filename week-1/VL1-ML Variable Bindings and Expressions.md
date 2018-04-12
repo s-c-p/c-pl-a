@@ -3,6 +3,18 @@
 “Let go” of all programming languages you already know.
 So do not compare and contrast until asked.
 
+In fact, don't even think of this as programming
+
+
+2.35 -- x will hold 34
+5.36 -- in SML/NJ you can use earlier bindings (not later, why? because
+		designers thought it'd make reasoning about code easier @ 6.06)
+6.38 -- Dynamic Environment: env you have when you are running a program
+8.14 -- static env holds types of all stuff
+10.07 - Prof *thinks* type checking comes before program evaluation
+
+
+
 ## heading
 
 ***it*** is an expression, a something
