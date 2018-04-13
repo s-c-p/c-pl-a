@@ -6,6 +6,12 @@ So do not compare and contrast until asked.
 In fact, don't even think of this as programming
 
 
+## From the PDF
+
+An ML program is a sequence of bindings. Each binding gets type-checked and
+then (assuming it type-checks) evaluated.
+
+
 ## (covered at last but needs to be understood first)
 
 ***it*** is an expression, a something
