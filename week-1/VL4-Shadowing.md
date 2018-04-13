@@ -95,3 +95,9 @@ val a = 2
 ```
 
 use the above file in REPL and see that a is still shadowed, why?
+
+
+## Self Found Resources
+
+https://bit.ly/2HiY3fC
+first line, and the examples at-- https://en.wikipedia.org/wiki/Variable_shadowing
