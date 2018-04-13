@@ -10,6 +10,10 @@ In fact, don't even think of this as programming
 
 An ML program is a sequence of bindings. Each binding gets type-checked and
 then (assuming it type-checks) evaluated.
+	- page 2, para 2
+
+There are several kinds of binding
+	- page 2, para 3
 
 
 ## (covered at last but needs to be understood first)

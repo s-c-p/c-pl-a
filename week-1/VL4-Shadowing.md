@@ -5,6 +5,12 @@ The motto of this lecture is to
 1.40 -- once a variable binding is evaluated, the value bound to that
 		(variable) name DOES NOT CHANGE EVEN IF it's constituent
 		variable_names are later (below in file) bound to
+2.26 -- `val a = 5` is NOT an assignment; SML doesn't have the concept
+		of assignment
+2.50 -- Shadowed =>
+		different mapping for var_name in a different environment
+
+See paragraph titled **Variables are Immutable** in the PDF.
 
 So,
 
@@ -22,16 +28,10 @@ val c = b
 (* dynamic environment: a -> 5, b -> 20, c -> 20 *)
 ```
 
-2.26 -- `val a = 5` is NOT an assignment; SML doesn't have the concept
-		of assignment
-
  > Foresight: `=` is overloaded, if LHS begins with `val` name then the
  expr. becomes variable binding otherwise it is an equality checker
 
  > See doubts 1 and 2
-
-2.50 -- Shadowed =>
-		different mapping for var_name in a different environment
 
 ## Why?
 

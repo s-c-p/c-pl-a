@@ -36,6 +36,9 @@ Semantics:
 
 ## Values
 
+ > A value is an expression that,  "has no more computation to do,"
+ 	- page 2, para -3
+
 all values are expressions, but all expressions may not be values
 
 every value evaluates to itself in exactly "zero steps"
