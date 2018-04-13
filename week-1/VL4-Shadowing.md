@@ -48,6 +48,17 @@ val a = 2
 (* dynamic environment: a -> 2, b -> 1 *)
 ```
 
+Why does the dynamic environment look like `a -> 2, b -> 1` in the end?
+
+Here's why
+ 1. Expressions in variable bindings are evaluated "eagerly"
+	once the evaluation is complete the expression producing the value
+	becomes irrelevant
+ 2. There is no way to "assign to" a variable in ML. You can only shadow it
+	in a later environment
+
+-x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x--x-- 
+
 `<hidden-value>` shows that shadowing is happening
 
 
