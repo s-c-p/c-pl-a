@@ -1,3 +1,53 @@
+The motto of this lecture is to
+
+ > really understand how environments work
+
+1.40 -- once a variable binding is evaluated, the value bound to that
+		(variable) name DOES NOT CHANGE EVEN IF it's constituent
+		variable_names are later (below in file) bound to
+
+So,
+
+```
+val a = 10
+(* dynamic environment: a -> 10 *)
+
+val b = a * 2
+(* dynamic environment: a -> 10, b -> 20 *)
+
+val a = 5
+(* dynamic environment: a -> 5, b -> 20 THEREFORE *)
+
+val c = b
+(* dynamic environment: a -> 5, b -> 20, c -> 20 *)
+```
+
+2.26 -- `val a = 5` is NOT an assignment; SML doesn't have the concept
+		of assignment
+
+ > Foresight: `=` is overloaded, if LHS begins with `val` name then the
+ expr. becomes variable binding otherwise it is an equality checker
+
+ > See doubts 1 and 2
+
+2.50 -- Shadowed =>
+		different mapping for var_name in a different environment
+
+## Why?
+
+Given that
+
+```
+val a = 1
+(* dynamic environment: a -> 1 *)
+
+val b = a
+(* dynamic environment: a -> 1, b -> 1 *)
+
+val a = 2
+(* dynamic environment: a -> 2, b -> 1 *)
+```
+
 `<hidden-value>` shows that shadowing is happening
 
 
