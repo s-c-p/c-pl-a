@@ -70,3 +70,10 @@ https://medium.com/the-mission/6-things-every-person-should-recover-from-daily-1
 	5. When you retrain your subconscious, your goals will
 		happen very quickly
 
+it’s good to loosely direct your thought-dumping toward your
+goals. Consider the “requests” you made of your subconscious
+just before going to bed. You asked yourself loads of
+questions. You thought about and wrote down the things you’re
+trying to accomplish.
+
+(* other paragraphs in this unit are also nice *)
