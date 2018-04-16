@@ -33,7 +33,9 @@ Semantics:
 			  because the function body may be recursive.
 		How `t` is determined is magic which will be discussed in later
 		chapters.
-		[if fn is revursive THEN it MUST have a conditional (else it is
+		Also, type-checker ensures that args are used in expr only and not
+		outside.
+		[I think it's like -- if fn is revursive THEN it MUST have a conditional (else it is
 		 an ∞loop) which has at least one branch which doesn't call the fn
 		 itself, this I'll call the *terminating branch*. Since all branches
 		 of a conditional expr must have same type therefore determining the
@@ -48,3 +50,9 @@ Semantics:
 
 ## Function Call
 
+Syntax:
+
+
+Semantics:
+	Type-checking:
+	Evaluation:
