@@ -10,12 +10,12 @@ themselves
 
 Syntax:
 	`fun fn_name (x0 : t0, x1 : t1 ... xn : tn) = expr`
-	where,  fun 	is keyword
+	where,  fun 	is keyword used to make function bindings
 			fn_name is any suitable name given by us
-			xi      is `i`th argument's name, expr will call this using
-					the name we give to x1, x2 ... 
+			xi      is `i`th argument's name
 			ti		is the type of `i`th argument
-			=		is punctuation
+			=		is punctuation seprating function signature and
+					function definition
 			expr	is expression using x0, x1, ...
 
 Semantics:
