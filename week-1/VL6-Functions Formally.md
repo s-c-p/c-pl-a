@@ -21,13 +21,14 @@ Syntax:
 Semantics:
 	Type Checking:
 		End result of function binding is to extend the static environment
-		with the following type
-		`fn_name : (t1 * t2 * t3 ... * tn) -> t`
+		such that `fn_name` gets the following type
+		`(t1 * t2 * t3 ... * tn) -> t`
 		IFF
 			lang can type-check (figure out / conclude / infer) `expr`'s end
 			result to be of type `t` in a static environment containing
 			* enclosing static env (i.e. earlier bindings)
-			* info about type of each argument (available in `x1:t1, x2:t2...`
+			* info about type of each argument (available in
+			  `fn_name (x1 : t1, x2 : t2... xn : tn)`)
 			* this fn's own return type, i.e.
 			  `fn_name : (t1 * t2 * ... tn) -> t`
 			  because the function body may be recursive.
