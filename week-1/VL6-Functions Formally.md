@@ -20,12 +20,14 @@ Syntax:
 
 Semantics:
 	Type Checking:
-		End result of function binding is to extend the static environment
-		such that `fn_name` gets the following type
+		End result of function binding is extension of the enclosing
+		static environment such that `fn_name` gets associated with the
+		following type
 		`(t1 * t2 * t3 ... * tn) -> t`
 		IFF
 			lang can type-check (figure out / conclude / infer) `expr`'s end
-			result to be of type `t` in a static environment containing
+			result to be of type `t` in the static environment created for
+			function binding, containing
 			* enclosing static env (i.e. earlier bindings)
 			* info about type of each argument (available in
 			  `fn_name (x1 : t1, x2 : t2... xn : tn)`)
@@ -34,13 +36,16 @@ Semantics:
 			  because the function body may be recursive.
 		How `t` is determined is magic which will be discussed in later
 		chapters.
-		Also, type-checker ensures that args are used in expr only and not
-		outside.
-		[I think it's like -- if fn is revursive THEN it MUST have a conditional (else it is
-		 an ∞loop) which has at least one branch which doesn't call the fn
-		 itself, this I'll call the *terminating branch*. Since all branches
-		 of a conditional expr must have same type therefore determining the
-		 type of *terminating branch* will determine the type of recursive fn]
+		[I think it's like -- if fn is revursive THEN it MUST have a
+		conditional (else it is an ∞loop) which has at least one branch which
+		doesn't call the fn itself, this I'll call the *terminating branch*.
+		Since all branches of a conditional expr must have same type ∴
+		determining the type of *terminating branch* will determine the type
+		of recursive fn]
+		NOTE: the fact that a new static environment is created everytime
+		ensures the arguments (the variable names) are not added to the
+		static environment which comes after this binding; they're ONLY in
+		the static environment which is created for the body of the function
 	Evaluation:
 		When we write a function binding, the lang adds that name and
 		associated `expr` to the dynamic env. so that we can call it later
