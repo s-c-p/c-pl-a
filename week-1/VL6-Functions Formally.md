@@ -16,7 +16,8 @@ Syntax:
 			ti		is the type of `i`th argument
 			=		is punctuation seprating function signature and
 					function definition
-			expr	is expression using x0, x1, ...
+			expr	is expression i.e. what we'd call the function
+                    body
 
 Semantics:
 	Type Checking:
@@ -24,10 +25,10 @@ Semantics:
 		static environment such that `fn_name` gets associated with the
 		following type
 		`(t1 * t2 * t3 ... * tn) -> t`
-		IFF
+		this happens IFF
 			lang can type-check (figure out / conclude / infer) `expr`'s end
 			result to be of type `t` in the static environment created for
-			function binding, containing
+			function binding, which contains
 			* enclosing static env (i.e. earlier bindings)
 			* info about type of each argument (available in
 			  `fn_name (x1 : t1, x2 : t2... xn : tn)`)
@@ -57,7 +58,30 @@ Semantics:
 ## Function Call
 
 Syntax:
+    `fn_name (e1, e2, ..., en)`
+    where,  fn_name is function name
+            ei      is i-th expression which is bound to
+                    `fn_name`'s respective argument
 
 Semantics:
 	Type-checking:
+        `fn_name`'s type' looks like `(t1 * t2 * ... tn) -> t`
+        ei can be infered to have type ti ∀ i ∈ [1, n]
 	Evaluation:
+        function evaluation occours in a new dynamic environment D
+        - which is created on top of (as a copy of) the dynamic
+          environment existing at the point where function was defined
+        - eagerly evaluate ei (to vi) and bind the resultant values to
+          respective argument names in D
+        - evaluate `expr` in D, and the result value (if its not an
+          error or ∞loop) is sent back to calling environment
+        implications
+        ```
+        ```
+        will raise error because the point where function is defined
+        doesn't know `z`, although calling happens after `z`'s variable
+        binding
+        ```
+        ```
+        will return 
+
