@@ -77,11 +77,32 @@ Semantics:
           error or ∞loop) is sent back to calling environment
         implications
         ```
+        val x = 5
+        val y = 6
+        fun fn_name ( a : int, b : int ) =
+          a + b + z
+        val z = 7
+        val ans = fn_name(1, 2)
         ```
         will raise error because the point where function is defined
         doesn't know `z`, although calling happens after `z`'s variable
         binding
         ```
+        val x = 5
+        val y = 6
+        fun fn_name ( a : int, b : int ) =
+          a + b + y
+        val ans = fn_name(1, 2)
         ```
-        will return 
+        will have `ans` bound to (1 + 2 + 6) 9, not so interesting,
+        however the following example is truly illuminating
+        ```
+        val x = 5
+        val y = 6
+        fun fn_name ( a : int, b : int ) =
+          a + b + y
+        val y = 7
+        val ans = fn_name(1, 2)
+        ```
+        will ALSO have `ans` as (1+2+6) 9 not (1+2+7) 10
 
