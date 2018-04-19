@@ -1,13 +1,9 @@
-“If you’re interested, you come up with stories, excuses,
-reasons, and circumstances about why you can’t or why you
-won’t. If you’re committed, those go out the window. You
-just do whatever it takes.”
+“If you’re interested, you come up with stories, excuses, reasons, and circumstances about why you can’t or why you won’t. If you’re committed, those go out the window. You just do whatever it takes.”
 	— John Assaraf
 
 ## FINDING AND DEFINING YOUR WHY
 
-Exercise Aim : discover and describe my Why? to be able to
-	trigger it everyday, especially the deepest one.
+Exercise Aim : discover and describe my Why? to be able to trigger it everyday, especially the deepest one.
 
 Procedure
 	0. Pull out the journal
@@ -57,23 +53,24 @@ https://medium.com/the-mission/6-things-every-person-should-recover-from-daily-1
 
 ## Reframing your Subconscious Mind
 
-	1. That your subconscious is your CORE ASSUMPTIONS about
-		yourself and the world around you
-	2. Your life is a reflection of WHAT YOU BELIEVE YOU
-		DESERVE... this is subconscious
-	3. That in order to change your life, you need to retrain
-		your subconscious
-	4. This is best done JUST BEFORE YOU SLEEP and JUST AFTER
-		YOU WAKE UP (hence, don't be on your smartphone at
-		night, that will kill your meditative and creative
-		potential)
-	5. When you retrain your subconscious, your goals will
-		happen very quickly
+	1. That your subconscious is your CORE ASSUMPTIONS about yourself and the world around you
+	2. Your life is a reflection of WHAT YOU BELIEVE YOU DESERVE... this is subconscious
+	3. That in order to change your life, you need to retrain your subconscious
+	4. This is best done JUST BEFORE YOU SLEEP and JUST AFTER YOU WAKE UP (hence, don't be on your smartphone at night, that will kill your meditative and creative potential)
+	5. When you retrain your subconscious, your goals will happen very quickly
 
-it’s good to loosely direct your thought-dumping toward your
-goals. Consider the “requests” you made of your subconscious
-just before going to bed. You asked yourself loads of
-questions. You thought about and wrote down the things you’re
-trying to accomplish.
+#### 10 minute before sleep
+
+Take a few moments before you go to bed to meditate on and write down the things you’re trying to accomplish.
+
+Ask yourself loads of questions related to that thing. In Edison’s words, make some “requests.” Write those questions and thoughts down on paper. 
+
+Play with specificity, (more specific questions => the more clear will be your answers) While you’re sleeping, your subconscious mind will get to work on those things. 
+
+#### 10 minute before sleep
+
+it’s good to loosely direct your thought-dumping toward your goals. Consider the “requests” you made of your subconscious just before going to bed. You asked yourself loads of questions. You thought about and wrote down the things you’re trying to accomplish.
+
+Now, first thing in the morning, start writing down whatever comes to mind about those things. I often get ideas for articles I’m going to write while doing these thought-dumps.
 
 (* other paragraphs in this unit are also nice *)
