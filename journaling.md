@@ -97,6 +97,8 @@ Out source your behaviour to a physical location/state
 
 #### Meaning of 100% commitment
 
+Do or die.
+
 “It takes a certain type of person to want to surf big waves, when the horizon goes black and a huge wall of water is bearing down on you, you have to want that wave in order to make it! If you hesitate or aren’t fully committed you are going to get eaten!”
 
 In order to catch and ride a big wave, you must be 100 percent committed. If there is any hesitancy whatsoever, you will fail. You may even fail if you fully commit. But the only way you might succeed is if you’re dead set on seeing it to the end.
@@ -121,3 +123,6 @@ Your behavioral inhibition system is what attunes you to risks or threats in you
 
 Your behavioral activation system, on the other hand, is what attunes you to rewards. When you perceive these rewards, your behavioral activation system encourages you to action so you can obtain the reward.
 
+BIS and BAS are in constant tension, BIS dominates some parts of your life, BAS others. Most people have an avoidance-orientation toward life. They aren't acting according to their deepest desires. Instead, they're playing it safe. They're calculating their moves to ensure they don't look stupid.
+
+It's good to be careful and have backup plans but daily actions should not be dictated by *avoidance mentality*.
