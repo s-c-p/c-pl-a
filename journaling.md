@@ -73,4 +73,25 @@ it’s good to loosely direct your thought-dumping toward your goals. Consider t
 
 Now, first thing in the morning, start writing down whatever comes to mind about those things. I often get ideas for articles I’m going to write while doing these thought-dumps.
 
+Theta state is an optimal mental state where radical behavior modification can occur, such as overcoming drug or alcohol addiction. Moreover, Theta is where super-learning can occur. As Dr. Joseph Murphy explains in, The Power of Your Subconscious Mind, “You avoid conflict between your conscious and subconscious in the sleepy state. Imagine the fulfillment of your desire over and over again prior to sleep. Sleep in peace and wake in joy.”
+
 (* other paragraphs in this unit are also nice *)
+
+
+## Goal Setting
+
+1. How to continually re-wire your subconscious.
+    * high
+    * specific
+    * quantifiable
+
+2. The importance of setting numeric goals and having specific dates associated with the achievement of those goals.
+
+3. The psychology of "confidence," and that it is an effect or byproduct, not a cause. Confidence is the result of past performance. 
+
+use productivaction in tandem with 
+
+## Forcing Functions
+
+
+
