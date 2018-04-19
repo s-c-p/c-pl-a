@@ -93,5 +93,31 @@ use productivaction in tandem with
 
 ## Forcing Functions
 
+Out source your behaviour to a physical location/state
 
+#### Meaning of 100% commitment
+
+“It takes a certain type of person to want to surf big waves, when the horizon goes black and a huge wall of water is bearing down on you, you have to want that wave in order to make it! If you hesitate or aren’t fully committed you are going to get eaten!”
+
+In order to catch and ride a big wave, you must be 100 percent committed. If there is any hesitancy whatsoever, you will fail. You may even fail if you fully commit. But the only way you might succeed is if you’re dead set on seeing it to the end.
+
+There’s a useful lesson from big wave surfing that applies to a number of contexts in our lives. When you’re fully committed, you have a different posture than if you’re only partially committed. When partially committed, you’re hesitant. You’re not confident. You’re unsure and undetermined. 
+
+However, once you become dead set, all of the mental fog goes away. You become clear on what you’re doing and why you’re doing it. You stop thinking about the other options available to you. As Dr. Barry Schwartz has said in the book, The Paradox of Choice, “Knowing that you’ve made a choice that you will not reverse allows you to pour your energy into improving the relationship that you have rather than constantly second-guessing it.”
+
+You need to be 100 percent committed if you want to successfully and quickly adapt to a new and challenging environment. The question is, how do you become 100 percent committed? That's the very question I studied throughout my doctoral research as an organizational psychologist. 
+
+Specifically, I researched a concept I call, “The Point of No Return,” which is the moment it becomes easier to move toward your goals than to avoid them. Actually, your point of no return is the instant that pursuing your highest ambitions becomes your only option. You're fully committed to what you want to do, and this commitment creates a deep sense of confidence and congruence.
+
+How does this work?
+
+One of the most widely accepted theories explaining the relationship between biology and psychology is the biopsychological theory of personality proposed by Dr. Jeffrey Alan Gray in 1970. Gray proposed two systems governing all behaviors:
+
+#### Behavioral Inhibition System (BIS): 
+
+Your behavioral inhibition system is what attunes you to risks or threats in your environment. When you perceive these risks or threats, your behavioral inhibition system stops you from acting.
+
+#### Behavioral Activation System (BAS): 
+
+Your behavioral activation system, on the other hand, is what attunes you to rewards. When you perceive these rewards, your behavioral activation system encourages you to action so you can obtain the reward.
 
