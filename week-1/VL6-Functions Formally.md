@@ -27,12 +27,13 @@ Semantics:
 		`(t1 * t2 * t3 ... * tn) -> t`
 		this happens IFF
 			lang can type-check (figure out / conclude / infer) `expr`'s end
-			result to be of type `t` in the static environment created for
-			function binding, which contains
-			* enclosing static env (i.e. earlier bindings)
-			* info about type of each argument (available in
+			result to be of type `t` in a new static environment S created
+            for function binding. To contruct S
+			1. copy enclosing static environment (i.e. earlier bindings)
+               into S
+			2. extend S with info about type of each argument (available in
 			  `fn_name (x1 : t1, x2 : t2... xn : tn)`)
-			* this fn's own return type, i.e.
+			3. extend above S with this fn's own return type, i.e.
 			  `fn_name : (t1 * t2 * ... tn) -> t`
 			  because the function body may be recursive.
 		How `t` is determined is magic which will be discussed in later
@@ -44,7 +45,7 @@ Semantics:
 		determining the type of *terminating branch* will determine the type
 		of recursive fn]
 		NOTE: the fact that a new static environment is created everytime
-		ensures the arguments (the variable names) are not added to the
+		ensures the arguments (the variable names) are not there in the
 		static environment which comes after this binding; they're ONLY in
 		the static environment which is created for the body of the function
 	Evaluation:
@@ -62,6 +63,7 @@ Syntax:
     where,  fn_name is function name
             ei      is i-th expression which is bound to
                     `fn_name`'s respective argument
+            n       is the number of arguments
 
 Semantics:
 	Type-checking:
