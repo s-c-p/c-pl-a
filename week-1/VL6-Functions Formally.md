@@ -107,4 +107,17 @@ Semantics:
         val ans = fn_name(1, 2)
         ```
         will ALSO have `ans` as (1+2+6) 9 not (1+2+7) 10
+        Last example, to try in REPL
+        ```
+        val x = 2
+        fun f ( y : int ) =
+            x + y;
+        val x = f 2 (* why the FUCK does this show hidden-val but not first line?  *)
+        val x = f 2
+        ```
+
+## Doubts 
+
+1.                      ^
+                        |
 
