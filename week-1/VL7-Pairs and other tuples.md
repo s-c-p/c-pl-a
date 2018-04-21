@@ -33,14 +33,46 @@ Syntax:
             i is either 1 or 2
             x is either a pair expression or name bound to a pair
     e.g.
-        `#1 (4+4, 3)`
+        `#1 (4+4, 3)` gives 8
+        `#2 a_pair` gives second element of a_pair if it exists in dynamic environment.
 
 Semantics:
     Type Checking:
-        (why do we need type checking here? we are just retreiving value from a store. what you are afraid it'll be modified in the time taken for fetching -- well that's just absurd. In fact, type checking is absurd for this. I wonder if this really happens or the teacher is just making stuff up to stay true to his word)
-        ensure each ei of x cabe evaluated (i.e. if ei is an expression, not just a value (42 evaluates to itself), ensure their types are available in static environment.
-        further, if x has type `t1 * t2` then `#1 x` should be of type t1 ~ for 2.
+        ensure each ei of x can be evaluated (i.e. if ei is an expression, not just a value (42 evaluates to itself), ensure their types are available in static environment.
+        x should be a pair (tuple i.e. `t1 * t2` kind of thingy) type in static environment [see-- 2.55] ensure i denotes a valid number (can't ask for #3 in a pair)
+        finally, if x has type `t1 * t2` then `#1 x` should be of type t1 ~ for 2.
     Evaluation:
        return *value* of `i`th element of the pair (and by extension, tuple).
        e.g. `#1 (x, 4)` will return value of x (i.e. dynamic environment look up will take place)
+
+## Doubt
+
+Condsider
+
+```
+fun swap ( pr : int * int ) =
+    (#2 pr, #1 pr);
+```
+
+since this is a function with just one argument we can call it using 2 different syntaxes
+    1. `fn_name arg` (i.e. without enclosing paren.s)
+    2. `fn_name(arg)` (i.e. with paren.s)
+however in this case, of `swap`, the argument's syntax itself has surrounding paren.s (i.e. if it's not bound to a name).
+
+It feels good to know that syntax-1 `swap (2, 3)` works fine, and so does syntax-2 `swap((2, 3))`. But the type signature of function got me curious and I discovered that `swap(((((((((2, 3)))))))))` also works without any problems.
+
+Why?
+
+**Perhaps all that matters is the tuple's type signature (`int * int` in this case)**, so for a fn
+
+```
+fun add_cood ( p1 : int * int, p2 : int * int ) =
+    ((#1 p1 + #1 p2), (#2 p1 + #2 p2))
+;
+```
+
+REPL tells `add_cood`'s type is `(int * int) * (int * int) -> (int * int)` so obviouly, `add_cood ((1, 1), (2, 2));` works flawlessly while `add_cood (1, 1, 2, 2);` raises error. I don't understand how `int * int * int * int` is different from `(int * int) * (int * int)`, in context of doubts raised by `swap`
+
+
+
 
