@@ -126,3 +126,22 @@ Your behavioral activation system, on the other hand, is what attunes you to rew
 BIS and BAS are in constant tension, BIS dominates some parts of your life, BAS others. Most people have an avoidance-orientation toward life. They aren't acting according to their deepest desires. Instead, they're playing it safe. They're calculating their moves to ensure they don't look stupid.
 
 It's good to be careful and have backup plans but daily actions should not be dictated by *avoidance mentality*.
+
+
+## Don't Let Success Derail You
+
+1. The fact that if you consistently practice these principles, you will becomes successful.
+
+2. Once successful, your path will become more complex and confusing, not less.
+
+3. Success, for most people, leads to plateau and failure.
+
+4. If you want to continually succeed and evolve and grow, you must stick with these fundamentals.
+
+Don't loose track of your why? Stick to the fundamentals
+
+morning routine
+knowing that self is flexible
+?kaizen and striving for why
+
+
