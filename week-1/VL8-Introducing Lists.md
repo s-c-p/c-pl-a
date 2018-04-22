@@ -33,3 +33,5 @@ i.e. really crazy things like `((int * int) * bool) list` which would looks some
 
 `tl [1]` is [], but `tl []` raises error
 
+VERY IMPORTANT -- data is immutable in SML, therefore `hd x` doesn't chop off the head of the list, the list remains unchanged, so `val a = hd x; val b = hd x` will have `a = b` (discovered @ 6.50 of next lecture, solving the problem myself)
+
