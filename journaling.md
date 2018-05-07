@@ -1,3 +1,9 @@
+http://bit.do/journaling
+ps45@bin
+cheap_pwd
+
+------------------------------------------------------------------------------
+
 “If you’re interested, you come up with stories, excuses, reasons, and circumstances about why you can’t or why you won’t. If you’re committed, those go out the window. You just do whatever it takes.”
 	— John Assaraf
 
