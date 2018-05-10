@@ -118,3 +118,28 @@ fun dates_in_months(ds : (int*int*int) list, months : int list) =
             dates_in_months(tl(ds), months)
 ;
 
+(*
+done using @, but this spoils order and may cause repetition
+fun dates_in_months(ds : (int*int*int) list, months : int list) =
+    if null months
+    then
+        []
+    else
+        dates_in_month(ds, hd(months)) @ dates_in_months(ds, tl(months))
+;
+*)
+
+fun get_nth(ss : string list, n : int) =
+    let
+        fun f(sl : string list, curr : int) =
+            if curr = n
+            then
+                hd(sl)
+            else
+                f(tl(sl), curr+1)
+        ;
+    in
+        f(ss, 1)
+    end
+;
+

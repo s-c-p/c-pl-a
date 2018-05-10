@@ -26,3 +26,5 @@ val test10 = dates_in_month (dates, 11) = [(2017, 11, 9), (2017, 11, 10), (2016,
 val test11 = dates_in_months ([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4]) = [(2012,2,28),(2011,3,31),(2011,4,28)]
 val test12 = dates_in_months (dates, [6,11,10]) = dates;
 
+val test13 = get_nth (["hi", "there", "how", "are", "you"], 2) = "there"
+
