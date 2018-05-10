@@ -166,7 +166,34 @@ fun number_before_reaching_sum(sum : int, nums : int list) =
                 f(currSum+hd(ns), currIndex+1, tl(ns))
         ;
     in
-        f ( hd(nums), 1, tl(nums) )
+        f (0, 0, nums)
+        (* 
+        f(hd(nums), 1, tl(nums))
+        * works nicely for mid cases, however is list[0] > sum, then
+        * we get wrong answers, therefore seeds are 0, 0, nums
+        * *)
+    end
+;
+
+fun what_month(diy : int) =
+    let
+        val dim = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    in
+        number_before_reaching_sum(diy, dim) + 1
+        (*why +1, see specs of prob8, esp. lines 3 & 4*)
+    end
+;
+
+fun month_range(day1 : int, day2 : int) =
+    let
+        fun f(curr_diy : int) =
+            if curr_diy > day2
+            then
+                []
+            else
+                what_month(curr_diy) :: f(curr_diy+1)
+    in
+        f(day1)
     end
 ;
 
