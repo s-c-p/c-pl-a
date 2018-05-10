@@ -143,3 +143,16 @@ fun get_nth(ss : string list, n : int) =
     end
 ;
 
+fun date_to_string(dt : int*int*int) =
+    let
+        val months = ["January", "February", "March", "April", "May",
+            "June", "July", "August", "September", "October",
+            "November", "December"];
+        val d = date_of(dt);
+        val m = month_of(dt);
+        val y = year_of(dt);
+    in
+        get_nth(months, m) ^ " " ^  Int.toString(d) ^ ", " ^ Int.toString(y)
+    end
+;
+
