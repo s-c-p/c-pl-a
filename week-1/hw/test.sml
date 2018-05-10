@@ -34,5 +34,7 @@ val test15 = number_before_reaching_sum (10, [1,2,3,4,5]) = 3;
 
 val test16 = what_month 70 = 3;
 
-val test17 = month_range (31, 34);(*= [1,2,2,2]
+val test17 = month_range (31, 34) = [1,2,2,2];
+
+val test18 = oldest([(2012,2,28),(2011,3,31),(2011,4,28)]) = SOME (2011,3,31);
 

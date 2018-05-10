@@ -197,3 +197,25 @@ fun month_range(day1 : int, day2 : int) =
     end
 ;
 
+fun oldest(ds : (int*int*int) list) =
+    let
+        fun bin_max(a : int*int*int, b : (int*int*int) option) =
+            let
+                val raw_date = valOf b;
+            in
+                if is_older(a, raw_date)
+                then a
+                else raw_date
+            end
+        ;
+    in
+        if null ds
+        then NONE
+        else SOME (
+            if null(tl(ds))
+            then hd(ds)
+            else bin_max(hd(ds), oldest(tl(ds)))
+        )
+    end
+;
+
