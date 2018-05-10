@@ -156,3 +156,17 @@ fun date_to_string(dt : int*int*int) =
     end
 ;
 
+fun number_before_reaching_sum(sum : int, nums : int list) =
+    let
+        fun f(currSum : int, currIndex : int, ns : int list) =
+            if currSum + hd(ns) >= sum
+            then
+                currIndex
+            else
+                f(currSum+hd(ns), currIndex+1, tl(ns))
+        ;
+    in
+        f ( hd(nums), 1, tl(nums) )
+    end
+;
+

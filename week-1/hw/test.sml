@@ -30,3 +30,5 @@ val test13 = get_nth (["hi", "there", "how", "are", "you"], 2) = "there";
 
 val test14 = date_to_string (2013, 6, 1) = "June 1, 2013";
 
+val test15 = number_before_reaching_sum (10, [1,2,3,4,5]);(* = 3;
+
