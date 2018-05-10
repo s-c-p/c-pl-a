@@ -16,24 +16,16 @@ fun date_of ( d : int*int*int ) = #3 d;
 
 fun is_older ( fst : int*int*int, scnd : int*int*int ) =
     if (year_of fst) < (year_of scnd)
-    then
-        true
+    then true
     else if (year_of fst) = (year_of scnd)
     then
         if (month_of fst) < (month_of scnd)
-        then
-            true
+        then true
         else if (month_of fst) = (month_of scnd)
         then
-            if (date_of fst) < (date_of scnd)
-            then
-                true
-            else
-                false
-        else
-            false
-    else
-        false
+            (date_of fst) < (date_of scnd)
+        else false
+    else false
 ;
 
 fun number_in_month(ds : (int*int*int) list, month : int) =
@@ -56,55 +48,73 @@ fun number_in_months ( ds : (int*int*int) list, months : int list ) =
         number_in_month ( ds, hd months ) + number_in_months ( ds, tl months )
 ;
 
-fun aINb(needle : int, haystack : int list) =
-    if null haystack
-    then
-        false
-    else
-        if hd haystack = needle
-        then
-            true orelse aINb(needle, tl haystack)
-        else
-            aINb(needle, tl haystack)
-;
-
-fun valid_date(date : int*int*int) =
-    let
-        val odd_m = [1, 3, 5, 7, 8, 10, 12];
-        val even_m = [4, 6, 9, 11];
-    in
-        if aINb(month_of(date), odd_m)
-        then
-            if date_of(date) <= 31
-            then
-                true
-            else
-                false
-        else if aINb(month_of(date), even_m)
-        then
-            if date_of(date) <= 30
-            then
-                true
-            else
-                false
-        else
-            if date_of(date) <= 28
-            then
-                true
-            else
-                false
-    end
-;
-
 fun dates_in_month(ds : (int*int*int) list, month : int) =
     if null ds
     then
         []
     else
-        if valid_date(hd(ds))
+(*
+        if h__valid_date(hd(ds))
         then
             hd(ds) :: dates_in_month(tl(ds), month)
         else
             dates_in_month(tl(ds), month)
+fun h__valid_date(date : int*int*int) =
+    (* checks if date is valid for a given month *)
+    let
+        val odd_m = [1, 3, 5, 7, 8, 10, 12];
+        val even_m = [4, 6, 9, 11];
+    in
+        if h__a_in_b(month_of(date), odd_m)
+        then
+            date_of(date) <= 31
+        else if h__a_in_b(month_of(date), even_m)
+        then
+            date_of(date) <= 30
+        else
+            date_of(date) <= 28
+    end
+;
+
+*)
+
+        let
+            val next_call = dates_in_month(tl(ds), month)
+        in
+            if month_of(hd(ds)) = month
+            then
+                hd(ds) :: next_call
+            else
+                next_call
+        end
+;
+
+fun h__a_in_b(needle : int, haystack : int list) =
+    if null haystack
+    then false
+    else
+        let
+            val head = hd(haystack);
+            val tail = tl(haystack);
+            val next_call = h__a_in_b(needle, tail);
+        in
+            if head = needle
+            then
+                true orelse next_call
+            else
+                next_call
+        end
+;
+
+fun dates_in_months(ds : (int*int*int) list, months : int list) =
+    if null ds
+    then
+        []
+    else
+        if h__a_in_b(month_of(hd(ds)), months)
+        then
+            hd(ds) :: dates_in_months(tl(ds), months)
+        else
+            dates_in_months(tl(ds), months)
 ;
 
