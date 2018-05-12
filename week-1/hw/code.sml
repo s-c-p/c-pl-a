@@ -129,7 +129,18 @@ fun number_before_reaching_sum(sum : int, xs : int list) =
                 progress(curr_sum+hd(p_xs), i+1, tl(p_xs))
         ;
     in
+        progress(0, 0, xs)
+        (*
         progress(hd(xs), 1, tl(xs))
+        is bad, because
+         * we don't know if tl(xs) is feasible, what if xs is []?
+         * if the list is one element long, the fun's condition
+           still applies that checking should be left to the specialist
+           fun progress -- consider the case
+                number_before_reaching_sum(1, [2])
+           answer should be 0 (although 0 index is allowed or not is not
+           mentioned in the question paper)
+        *)
     end
 ;
 
