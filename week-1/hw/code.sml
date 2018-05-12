@@ -213,15 +213,28 @@ fun h__a_in_b(needle : int, haystack : int list) =
     then
         false
     else
-        let
-            val next_call = h__a_in_b(needle, tl(haystack));
-        in
-            if hd(haystack) = needle
+        if hd(haystack) = needle
+        then
+            true orelse h__a_in_b(needle, tl(haystack))
+        else
+            h__a_in_b(needle, tl(haystack))
+;
+
+fun h__dedup(xs : int list) =
+    let
+        fun progress(known : int list, p_xs : int list) =
+            if null p_xs
             then
-                true orelse h__a_in_b(needle, tl(haystack))
+                known
+            else if h__a_in_b(hd(p_xs), known)
+            then
+                progress(known, tl(p_xs))
             else
-                h__a_in_b(needle, tl(haystack))
-        end
+                progress(hd(p_xs) :: known, tl(p_xs))
+        ;
+    in
+        progress([], xs)
+    end
 ;
 
 fun number_in_months_challenge
