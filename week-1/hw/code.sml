@@ -263,3 +263,35 @@ fun dates_in_months_challenge(ds : (int*int*int) list, months : int list) =
         dates_in_months(ds, unique_months)
     end
 ;
+
+fun reasonable_date(date : int*int*int) =
+    let
+        val day = day_of(date);
+        val year = year_of(date);
+        val month = month_of(date);
+        val odd_months = [1, 3, 5, 7, 8, 10, 12];
+        val even_months = [4, 6, 9, 11];
+    in
+        if year > 0
+        then
+            if month > 0 andalso month < 13
+            then
+                if h__a_in_b(month, odd_months)
+                then
+                    day > 0 andalso day <= 31
+                else if h__a_in_b(month, even_months)
+                then
+                    day > 0 andalso day <= 30
+                else
+                    if year mod 4 = 0
+                    then
+                        day > 0 andalso day <= 29
+                    else
+                        day > 0 andalso day <= 28
+            else
+                false
+        else
+            false
+    end
+;
+
