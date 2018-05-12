@@ -79,6 +79,17 @@ fun dates_in_months(ds : (int*int*int) list, months : int list) =
         []
     else
         dates_in_month(ds, hd(months)) @ dates_in_months(ds, tl(months))
+(*
+    if null months
+    then
+        []
+    else
+        if h__a_in_b(month_of(hd(ds)), months)
+        then
+            hd(ds) :: dates_in_months(tl(ds), months)
+        else
+            dates_in_months(tl(ds), months)
+*)
 ;
 
 fun get_nth(ss : string list, n : int) =
@@ -237,20 +248,18 @@ fun h__dedup(xs : int list) =
     end
 ;
 
-fun number_in_months_challenge
+fun number_in_months_challenge(ds : (int*int*int) list, months : int list) =
+    let
+        val unique_months = h__dedup(months);
+    in
+        number_in_months(ds, unique_months)
+    end
+;
 
 fun dates_in_months_challenge(ds : (int*int*int) list, months : int list) =
-    if null ds
-    then
-        []
-    else
-        let
-            next_call = dates_in_months(tl(ds), months)
-        in
-            if h__a_in_b(month_of(hd(ds)), months)
-            then
-                hd(ds) :: next_call
-            else
-                next_call
-        end
+    let
+        val unique_months = h__dedup(months);
+    in
+        dates_in_months(ds, unique_months)
+    end
 ;
