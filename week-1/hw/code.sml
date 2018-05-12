@@ -276,7 +276,7 @@ fun reasonable_date(date : int*int*int) =
             then
                 year mod 400 = 0
             else
-                year mod 4
+                year mod 4 = 0
         ;
     in
         if year > 0
