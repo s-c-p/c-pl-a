@@ -10,22 +10,26 @@
 * represents February 2.  (We ignore leap years except in one.
 *)
 
-fun year_of ( d : int*int*int ) = #1 d;
-fun month_of ( d : int*int*int ) = #2 d;
-fun date_of ( d : int*int*int ) = #3 d;
+fun year_of(date : int*int*int) = #1 date;
+fun month_of(date : int*int*int) = #2 date;
+fun day_of(date : int*int*int) = #3 date;
 
-fun is_older ( fst : int*int*int, scnd : int*int*int ) =
-    if (year_of fst) < (year_of scnd)
-    then true
-    else if (year_of fst) = (year_of scnd)
+fun is_older(fst : int*int*int, scnd : int*int*int) =
+    if year_of(fst) < year_of(scnd)
     then
-        if (month_of fst) < (month_of scnd)
-        then true
-        else if (month_of fst) = (month_of scnd)
+        true
+    else if year_of(fst) = year_of(scnd)
+    then
+        if month_of(fst) < month_of(scnd)
         then
-            (date_of fst) < (date_of scnd)
-        else false
-    else false
+            true
+        else if month_of(fst) = month_of(scnd)
+        then
+            day_of(fst) < day_of(scnd)
+        else
+            false
+    else
+        false
 ;
 
 fun number_in_month(ds : (int*int*int) list, month : int) =
@@ -33,19 +37,24 @@ fun number_in_month(ds : (int*int*int) list, month : int) =
     then
         0
     else
-        if month_of(hd(ds)) = month
-        then
-            1 + number_in_month(tl(ds), month)
-        else
-            number_in_month(tl(ds), month)
+        let
+            val next_call = number_in_month(tl(ds), month);
+        in
+            if month_of(hd(ds)) = month
+            then
+                1 + next_call
+            else
+                next_call
+        end
 ;
 
-fun number_in_months ( ds : (int*int*int) list, months : int list ) =
+fun number_in_months(ds : (int*int*int) list, months : int list) =
     if null months
     then
         0
     else
-        number_in_month ( ds, hd months ) + number_in_months ( ds, tl months )
+        (* given that months has no repeated values *)
+        number_in_month(ds, hd(months)) + number_in_months(ds, tl(months))
 ;
 
 fun dates_in_month(ds : (int*int*int) list, month : int) =
@@ -53,33 +62,8 @@ fun dates_in_month(ds : (int*int*int) list, month : int) =
     then
         []
     else
-(*
-        if h__valid_date(hd(ds))
-        then
-            hd(ds) :: dates_in_month(tl(ds), month)
-        else
-            dates_in_month(tl(ds), month)
-fun h__valid_date(date : int*int*int) =
-    (* checks if date is valid for a given month *)
-    let
-        val odd_m = [1, 3, 5, 7, 8, 10, 12];
-        val even_m = [4, 6, 9, 11];
-    in
-        if h__a_in_b(month_of(date), odd_m)
-        then
-            date_of(date) <= 31
-        else if h__a_in_b(month_of(date), even_m)
-        then
-            date_of(date) <= 30
-        else
-            date_of(date) <= 28
-    end
-;
-
-*)
-
         let
-            val next_call = dates_in_month(tl(ds), month)
+            val next_call = dates_in_month(tl(ds), month);
         in
             if month_of(hd(ds)) = month
             then
@@ -89,37 +73,6 @@ fun h__valid_date(date : int*int*int) =
         end
 ;
 
-fun h__a_in_b(needle : int, haystack : int list) =
-    if null haystack
-    then false
-    else
-        let
-            val head = hd(haystack);
-            val tail = tl(haystack);
-            val next_call = h__a_in_b(needle, tail);
-        in
-            if head = needle
-            then
-                true orelse next_call
-            else
-                next_call
-        end
-;
-
-fun dates_in_months(ds : (int*int*int) list, months : int list) =
-    if null ds
-    then
-        []
-    else
-        if h__a_in_b(month_of(hd(ds)), months)
-        then
-            hd(ds) :: dates_in_months(tl(ds), months)
-        else
-            dates_in_months(tl(ds), months)
-;
-
-(*
-done using @, but this spoils order and may cause repetition
 fun dates_in_months(ds : (int*int*int) list, months : int list) =
     if null months
     then
@@ -127,95 +80,164 @@ fun dates_in_months(ds : (int*int*int) list, months : int list) =
     else
         dates_in_month(ds, hd(months)) @ dates_in_months(ds, tl(months))
 ;
-*)
 
 fun get_nth(ss : string list, n : int) =
     let
-        fun f(sl : string list, curr : int) =
-            if curr = n
+        fun seed(ss2 : string list, i : int) =
+            if i = n
             then
-                hd(sl)
+                hd(ss2)
             else
-                f(tl(sl), curr+1)
+                seed(tl(ss2), i+1)
         ;
     in
-        f(ss, 1)
+        seed(ss, 1)
     end
 ;
 
-fun date_to_string(dt : int*int*int) =
+fun date_to_string(date : int*int*int) =
     let
         val months = ["January", "February", "March", "April", "May",
-            "June", "July", "August", "September", "October",
-            "November", "December"];
-        val d = date_of(dt);
-        val m = month_of(dt);
-        val y = year_of(dt);
+            "June", "July", "August", "September", "October", "November",
+            "December"];
+        val y = year_of(date);
+        val m = month_of(date);
+        val d = day_of(date);
     in
-        get_nth(months, m) ^ " " ^  Int.toString(d) ^ ", " ^ Int.toString(y)
+        get_nth(months, m) ^ " " ^ Int.toString(d) ^ ", " ^ Int.toString(y)
     end
 ;
 
-fun number_before_reaching_sum(sum : int, nums : int list) =
+fun number_before_reaching_sum(sum : int, xs : int list) =
     let
-        fun f(currSum : int, currIndex : int, ns : int list) =
-            if currSum + hd(ns) >= sum
+        fun progress(curr_sum : int, i : int, p_xs : int list) =
+            if curr_sum + hd(p_xs) >= sum
             then
-                currIndex
+                i
             else
-                f(currSum+hd(ns), currIndex+1, tl(ns))
+                progress(curr_sum+hd(p_xs), i+1, tl(p_xs))
         ;
     in
-        f (0, 0, nums)
-        (* 
-        f(hd(nums), 1, tl(nums))
-        * works nicely for mid cases, however is list[0] > sum, then
-        * we get wrong answers, therefore seeds are 0, 0, nums
-        * *)
+        progress(hd(xs), 1, tl(xs))
     end
 ;
 
 fun what_month(diy : int) =
     let
         val dim = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        fun sum_i(till : int, xs : int list) =
+            let fun progress(i : int, sum : int, p_xs : int list) =
+                    if i = till then sum
+                    else progress(i+1, sum+hd(p_xs), tl(p_xs))
+                ;
+            in
+                progress(0, 0, xs)
+            end
+        ;
+        val best_guess = number_before_reaching_sum(diy, dim);
     in
-        number_before_reaching_sum(diy, dim) + 1
-        (*why +1, see specs of prob8, esp. lines 3 & 4*)
+        if sum_i(best_guess, dim) = diy
+        then
+            best_guess
+        else
+            best_guess + 1
+            (* +1 cuz this is like 2.xx so we say month is 3 *)
     end
 ;
 
 fun month_range(day1 : int, day2 : int) =
     let
-        fun f(curr_diy : int) =
-            if curr_diy > day2
+        fun progress( curr : int ) =
+            if day2 - curr < 0
             then
                 []
             else
-                what_month(curr_diy) :: f(curr_diy+1)
+                what_month(curr) :: progress(curr+1)
+            ;
     in
-        f(day1)
+        progress(day1)
     end
 ;
 
 fun oldest(ds : (int*int*int) list) =
     let
-        fun bin_max(a : int*int*int, b : (int*int*int) option) =
-            let
-                val raw_date = valOf b;
-            in
-                if is_older(a, raw_date)
-                then a
-                else raw_date
-            end
+        fun bin_max(a : int*int*int, b : int*int*int) =
+            if is_older(a, b)
+            then a
+            else b
         ;
     in
         if null ds
         then NONE
         else SOME (
             if null(tl(ds))
-            then hd(ds)
-            else bin_max(hd(ds), oldest(tl(ds)))
+            then
+                hd(ds)
+            else
+                bin_max(hd(ds), valOf(oldest(tl(ds))))
         )
     end
 ;
 
+(*
+fun get_index(needle : string, haystack : string list) =
+    let
+        (* type-checking still left, index is perhaps int option *)
+        fun progress(index : int, p_haystack string list) =
+            if null(tl(p_haystack))
+            then
+                if hd(p_haystack) = needle
+                then
+                    SOME index
+                else
+                    NONE
+            else
+                if hd(p_haystack) = needle
+                then
+                    SOME index
+                else
+                    progress(index+1, tl(p_haystack))
+        ;
+    in
+        if null(haystack)
+        then
+            NONE
+        else
+            progress(1, haystack)
+    end
+;
+*)
+
+fun h__a_in_b(needle : int, haystack : int list) =
+    if null haystack
+    then
+        false
+    else
+        let
+            val next_call = h__a_in_b(needle, tl(haystack));
+        in
+            if hd(haystack) = needle
+            then
+                true orelse h__a_in_b(needle, tl(haystack))
+            else
+                h__a_in_b(needle, tl(haystack))
+        end
+;
+
+fun number_in_months_challenge
+
+fun dates_in_months_challenge(ds : (int*int*int) list, months : int list) =
+    if null ds
+    then
+        []
+    else
+        let
+            next_call = dates_in_months(tl(ds), months)
+        in
+            if h__a_in_b(month_of(hd(ds)), months)
+            then
+                hd(ds) :: next_call
+            else
+                next_call
+        end
+;
