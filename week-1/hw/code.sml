@@ -271,6 +271,13 @@ fun reasonable_date(date : int*int*int) =
         val month = month_of(date);
         val odd_months = [1, 3, 5, 7, 8, 10, 12];
         val even_months = [4, 6, 9, 11];
+        val is_leap =
+            if year mod 100 = 0
+            then
+                year mod 400 = 0
+            else
+                year mod 4
+        ;
     in
         if year > 0
         then
