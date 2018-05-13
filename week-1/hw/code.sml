@@ -301,7 +301,7 @@ fun reasonable_date(date : int*int*int) =
                 then
                     day > 0 andalso day <= 30
                 else
-                    if year mod 4 = 0
+                    if is_leap
                     then
                         day > 0 andalso day <= 29
                     else
