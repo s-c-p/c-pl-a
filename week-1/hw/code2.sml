@@ -97,6 +97,29 @@ fun month_range(day1 : int*int*int, day2 : int*int*int) =
         what_month(day1) :: month_range(day1+1, day2)
 ;
 
+fun oldest(dates : (int*int*int) list) =
+    let
+        fun older(date1 : int*int*int, date2 : (int*int*int) option) =
+            (* finding max or min is a binary operation like add or mul
+            * so we define this function to do just that - get the oldest
+            * from exactly TWO dates *)
+            if is_older(date1, valOf(date2))
+            then date1
+            else valOf(date2)
+        ;
+    in
+        if null(dates)
+        then NONE
+        else SOME (
+            if null(tl(dates))
+            then
+                hd(dates)
+            else
+                older(hd(dates), oldest(tl(dates)))
+        )
+    end
+;
+
 (* 
 number_before_reaching(1, [2]) = 0;
 number_before_reaching(2, [2]) = 0;
@@ -106,3 +129,87 @@ number_before_reaching(6, [5, 6, 7]) = 1;
 number_before_reaching(6, [0, 1, 2, 3, 4, 5, 6, 7]) = 3;
 number_before_reaching(11, [5, 6, 7]) = 1;
 *)
+
+fun h__a_in_b(needle : int, haystack : int list) =
+    if null haystack
+    then
+        false
+    else
+        if hd(haystack) = needle
+        then
+            true orelse h__a_in_b(needle, tl(haystack))
+        else
+            h__a_in_b(needle, tl(haystack))
+;
+
+fun h__dedup(xs : int list) =
+    let
+        fun progress(known : int list, p_xs : int list) =
+            if null p_xs
+            then
+                known
+            else if h__a_in_b(hd(p_xs), known)
+            then
+                progress(known, tl(p_xs))
+            else
+                progress(hd(p_xs) :: known, tl(p_xs))
+        ;
+    in
+        progress([], xs)
+    end
+;
+
+fun number_in_months_challenge(ds : (int*int*int) list, months : int list) =
+    let
+        val unique_months = h__dedup(months);
+    in
+        number_in_months(ds, unique_months)
+    end
+;
+
+fun dates_in_months_challenge(ds : (int*int*int) list, months : int list) =
+    let
+        val unique_months = h__dedup(months);
+    in
+        dates_in_months(ds, unique_months)
+    end
+;
+
+fun reasonable_date(date : int*int*int) =
+    let
+        val day = day_of(date);
+        val year = year_of(date);
+        val month = month_of(date);
+        val odd_months = [1, 3, 5, 7, 8, 10, 12];
+        val even_months = [4, 6, 9, 11];
+        val is_leap =
+            if year mod 100 = 0
+            then
+                year mod 400 = 0
+            else
+                year mod 4 = 0
+        ;
+    in
+        if year > 0
+        then
+            if month > 0 andalso month < 13
+            then
+                if h__a_in_b(month, odd_months)
+                then
+                    day > 0 andalso day <= 31
+                else if h__a_in_b(month, even_months)
+                then
+                    day > 0 andalso day <= 30
+                else
+                    if is_leap
+                    then
+                        day > 0 andalso day <= 29
+                    else
+                        day > 0 andalso day <= 28
+            else
+                false
+        else
+            false
+    end
+;
+
