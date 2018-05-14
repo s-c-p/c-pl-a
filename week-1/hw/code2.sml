@@ -89,7 +89,7 @@ fun what_month(diy : int) =
     end
 ;
 
-fun month_range(day1 : int*int*int, day2 : int*int*int) =
+fun month_range(day1 : int, day2 : int) =
     if day1 > day2
     then
         []
