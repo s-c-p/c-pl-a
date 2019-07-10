@@ -1,1 +1,6 @@
 http://www.cl.cam.ac.uk/~lp15/MLbook/pub-details.html
+
+
+
+do I need these?? -------  
+https://www.simonholywell.com/post/advanced-typescript-types/
